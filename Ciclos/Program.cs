@@ -75,3 +75,4 @@ for (int tabla = 0;
 {
     Console.WriteLine(siete + " * " + tabla + " = " + tabla * 7);
 }
+
