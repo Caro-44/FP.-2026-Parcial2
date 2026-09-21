@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ciclos E2", "Ciclos E2\Cicl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ciclos E3", "Ciclos E3\Ciclos E3.csproj", "{41F3F733-121A-4D62-88FB-EF3422C99B18}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Combate por turnos", "Combate por turnos\Combate por turnos.csproj", "{399F053A-81DD-46BE-BBC0-14281A1D398D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{41F3F733-121A-4D62-88FB-EF3422C99B18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41F3F733-121A-4D62-88FB-EF3422C99B18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41F3F733-121A-4D62-88FB-EF3422C99B18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{399F053A-81DD-46BE-BBC0-14281A1D398D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{399F053A-81DD-46BE-BBC0-14281A1D398D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{399F053A-81DD-46BE-BBC0-14281A1D398D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{399F053A-81DD-46BE-BBC0-14281A1D398D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
