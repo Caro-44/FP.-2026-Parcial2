@@ -43,14 +43,52 @@ FIN
 */
 
 Random rdm     = new Random();
-int    VidaJug = rdm.Next(50, 100+1);
+int    VidaJug = rdm.Next(50, 100 + 1);
 Random rdm2    = new Random();
-int    VidaEnm = rdm2.Next(50, 100+1);
+int    VidaEnm = rdm2.Next(50, 100 + 1);
 string comb;
-bool   turno;
+Random rdm3  = new Random();
+int    turno = rdm3.Next(0, 2);
 
-Console.WriteLine("La vida del jugador es: " + VidaJug);
-Console.WriteLine("La vida del enemigo es: " + VidaEnm);
-Console.WriteLine("¿Desea iniciar el combate?");
+
+    Console.WriteLine("La vida del jugador es: " + VidaJug);
+    Console.WriteLine("La vida del enemigo es: " + VidaEnm);
+    Console.WriteLine("¡Empecemos el combate!");
+    if (turno == 1)
+    {
+        Console.WriteLine("¡Ataca el jugador!");
+        string decision;
+        int    decisionNum;
+        Console.WriteLine("¿Deseas atacar o curarte? 1 para atacar, 2 para curarte.");
+        bool decisionTurn = int.TryParse(Console.ReadLine(), out decisionNum);
+        if (decisionTurn)
+        {
+            if (decisionNum == 1)
+            {
+                Random rdm4        = new Random();
+                int    ataqueJug   = rdm4.Next(1, 100 + 1);
+                int    vidFinalEnm = (VidaEnm - ataqueJug);
+                Console.WriteLine("Hiciste " + ataqueJug + " de daño.");
+                Console.WriteLine("La vida del enemigo es: " + vidFinalEnm);
+            }
+        }
+        else
+        {
+            Random rdm5         = new Random();
+            int    curacionJug  = rdm5.Next(1, 100 + 1);
+            int    vidaFinalJug = (VidaJug + curacionJug);
+            Console.WriteLine("Te haz curado. Haz recibido + " + curacionJug + " de vida extra");
+            Console.WriteLine("Tu vida ahora es: " + vidaFinalJug);
+        }
+    }
+    else
+    {
+        Console.WriteLine("¡Ataca el enemigo!");
+        Random rdm6         = new Random();
+        int    ataqueEnm    = rdm6.Next(1, 100 + 1);
+        int    vidaFinalJug = (VidaJug - ataqueEnm);
+        Console.WriteLine("El enemigo te ha atacado. Tu vida es ahora de: " + vidaFinalJug);
+
+    }
 
 
