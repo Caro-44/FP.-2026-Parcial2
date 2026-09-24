@@ -8,7 +8,7 @@ Crear un juego en el que un jugador se enfrenta a un enemigo en un combate por t
 OBJETIVO:
 Generar un programa que permita al jugador enfrentarse a un enemigo por turnos, ambos personajes tienen puntos de vida y ataque.
 Se elegirá de forma aleatoria quién hace el primer movimiento. En cada turno, el jugador puede elegir si curarse o atacar.
-El daño provocado variará por cada golpe y la pelea continuará turno por turno hasta ser derrotado.
+El daño provocado variará por cada golpe y la pelea continuará turno por turno hasta que uno sea derrotado.
 
 ENTRADAS:
 Vida jugador
@@ -34,8 +34,8 @@ Random    rdm     = new Random();
 int       turno    = rdm.Next(0, 2);
 string    decision;
 
-Console.WriteLine("La vida del jugador es: " + vidaJug);
-Console.WriteLine("La vida del enemigo es: " + vidaEnm);
+Console.WriteLine("La vida del jugador es de: " + vidaJug);
+Console.WriteLine("La vida del enemigo es de: " + vidaEnm);
 Console.WriteLine("¡Empecemos el combate!");
 
 while (vidaJug > 0 && vidaEnm > 0)
@@ -55,7 +55,7 @@ while (vidaJug > 0 && vidaEnm > 0)
         }
         else if (decision == "1")
         {
-            Console.WriteLine("Haz decidido atacar.");
+            Console.WriteLine("Has decidido atacar.");
             Console.WriteLine("El daño recibido por el enemigo es de: " + ataque);
             vidaEnm = Math.Max(0, vidaEnm - ataque);
             Console.WriteLine("La vida del enemigo es de: " + vidaEnm);
@@ -64,7 +64,7 @@ while (vidaJug > 0 && vidaEnm > 0)
         }
         else if (decision == "2")
         {
-            Console.WriteLine("Has decido curarte. Obtienes: " + cura);
+            Console.WriteLine("Has decidido curarte. Obtienes: " + cura);
             vidaJug = Math.Min(VIDA_JUG, vidaJug + cura);
             Console.WriteLine("Tu vida ahora es de: " + vidaJug);
 
