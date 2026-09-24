@@ -22,35 +22,73 @@ Vida final jugador
 Vida final enemigo
 Personaje derrotado
 
-ALGORITMO:
-
-INICIO
-Definir entradas
-Mostrar vida de jugador (aleatorio)
-Mostrar vida de (aleatorio)
-Escoger quién irá primero
-Si enemigo ataca primero
-Restar vida de jugador
-Sino
-Preguntar si atacar o curar
-Si se ataca
-Restar vida al enemigo
-Sino
-Agregar vida al jugador
-Repetir ciclos hasta llegar a cero
-FIN
-
 */
 
-Random rdm     = new Random();
-int    VidaJug = rdm.Next(50, 100+1);
-Random rdm2    = new Random();
-int    VidaEnm = rdm2.Next(50, 100+1);
-string comb;
-bool   turno;
+const int VIDA_JUG = 200;
+const int VIDA_ENM = 200;
 
-Console.WriteLine("La vida del jugador es: " + VidaJug);
-Console.WriteLine("La vida del enemigo es: " + VidaEnm);
-Console.WriteLine("¿Desea iniciar el combate?");
+var       vidaJug  = VIDA_JUG;
+var       vidaEnm  = VIDA_ENM;
 
+Random    rdm     = new Random();
+int       turno    = rdm.Next(0, 2);
+string    decision;
 
+Console.WriteLine("La vida del jugador es: " + vidaJug);
+Console.WriteLine("La vida del enemigo es: " + vidaEnm);
+Console.WriteLine("¡Empecemos el combate!");
+
+while (vidaJug > 0 && vidaEnm > 0)
+{
+    int ataque = rdm.Next(20, 50+1);
+    int cura   = rdm.Next(40, 80+1);
+
+    if (turno == 1)
+    {
+        Console.WriteLine("¡Turno del jugador!");
+        Console.WriteLine("¿Deseas atacar o curarte? 1 para atacar, 2 para curarte.");
+        decision = Console.ReadLine();
+
+        if (decision != "1" && decision != "2")
+        {
+            Console.WriteLine("Dato inválido. Intenta de nuevo.");
+        }
+        else if (decision == "1")
+        {
+            Console.WriteLine("Haz decidido atacar.");
+            Console.WriteLine("El daño recibido por el enemigo es de: " + ataque);
+            vidaEnm = Math.Max(0, vidaEnm - ataque);
+            Console.WriteLine("La vida del enemigo es de: " + vidaEnm);
+
+            turno = 0;
+        }
+        else if (decision == "2")
+        {
+            Console.WriteLine("Has decido curarte. Obtienes: " + cura);
+            vidaJug = Math.Min(VIDA_JUG, vidaJug + cura);
+            Console.WriteLine("Tu vida ahora es de: " + vidaJug);
+
+            turno = 0;
+        }
+
+    }
+    else if (turno == 0)
+
+    {
+        Console.WriteLine("¡Turno del enemigo!");
+        Console.WriteLine("El enemigo ha atacado. Has perdido: " + ataque);
+        vidaJug = Math.Max(0, vidaJug - ataque);
+        Console.WriteLine("Tu vida ahora es de: " + vidaJug);
+
+        turno = 1;
+
+    }
+    if (vidaJug <= 0)
+    {
+        Console.WriteLine("Has perdido el combate.");
+    }
+    else if (vidaEnm <= 0)
+    {
+        Console.WriteLine("¡Has ganado el combate! ¡Felicidades!");
+    }
+}
