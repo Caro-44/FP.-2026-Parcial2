@@ -52,6 +52,7 @@ while (vidaJug > 0 && vidaEnm > 0)
         if (decision != "1" && decision != "2")
         {
             Console.WriteLine("Dato inválido. Intenta de nuevo.");
+            turno = 1;
         }
         else if (decision == "1")
         {
